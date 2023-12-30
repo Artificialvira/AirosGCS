@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>System.Drawing</RootNamespace>
+    <AssemblyName>System.Drawing.Common</AssemblyName>
+    <AssemblyVersion>5.0.99.0</AssemblyVersion>
+    <FileVersion>4.6.57.0</FileVersion>
+    <PackageId>AirosGCSAirosGCS.Drawing.Common</PackageId>
+    <Authors>AirosGCSAirosGCS.Drawing.Common</Authors>
+    <Company>AirosGCSAirosGCS.Drawing.Common</Company>
+    <Product>AirosGCSAirosGCS.Drawing.Common</Product>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>open.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+    <ProjectReference Include="..\AirosGCSAirosGCS.Drawing\AirosGCSAirosGCS.Drawing.csproj" />
+  </ItemGroup>
+</Project>
