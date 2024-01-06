@@ -154,10 +154,10 @@
     <value>True</value>
   </data>
   <data name="CHK_showconsole.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 303</value>
+    <value>188, 300</value>
   </data>
   <data name="CHK_showconsole.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 17</value>
+    <value>214, 20</value>
   </data>
   <data name="CHK_showconsole.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -214,7 +214,7 @@
     <value>244, 323</value>
   </data>
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 13</value>
+    <value>80, 16</value>
   </data>
   <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>

@@ -42,6 +42,7 @@
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox1.DetectUrls = false;
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // CHK_showconsole
             // 
@@ -54,6 +55,7 @@
             // 
             resources.ApplyResources(this.BUT_updatecheck, "BUT_updatecheck");
             this.BUT_updatecheck.Name = "BUT_updatecheck";
+            this.BUT_updatecheck.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_updatecheck.UseVisualStyleBackColor = true;
             this.BUT_updatecheck.Click += new System.EventHandler(this.BUT_updatecheck_Click);
             // 
@@ -68,6 +70,7 @@
             // 
             resources.ApplyResources(this.BUT_betaupdate, "BUT_betaupdate");
             this.BUT_betaupdate.Name = "BUT_betaupdate";
+            this.BUT_betaupdate.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_betaupdate.UseVisualStyleBackColor = true;
             this.BUT_betaupdate.Click += new System.EventHandler(this.BUT_betaupdate_Click);
             // 

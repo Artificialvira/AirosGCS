@@ -81,5 +81,10 @@ namespace MissionPlanner.GCSViews
                 CustomMessageBox.Show(ex.ToString(), Strings.ERROR);
             }
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
