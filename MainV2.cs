@@ -1877,7 +1877,14 @@ namespace MissionPlanner
 
         private void MenuConnect_Click(object sender, EventArgs e)
         {
-            Connect();
+            PreCheck check = new PreCheck();
+            check.Show();
+            if (check.Motor.CheckState == CheckState.Checked)
+            {
+                MessageBox.Show("Hello Artificialvira it worked");
+                Connect();
+            }
+            
 
             // save config
             SaveConfig();
@@ -1885,6 +1892,8 @@ namespace MissionPlanner
 
         private void Connect()
         {
+
+            
             comPort.giveComport = false;
 
             log.Info("MenuConnect Start");

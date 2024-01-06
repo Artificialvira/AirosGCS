@@ -336,6 +336,9 @@
     <EmbeddedResource Include="Log\MavlinkLog.uk.resx">
       <DependentUpon>MavlinkLog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PreCheck.resx">
+      <DependentUpon>PreCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Radio\Sikradio.uk.resx">
       <DependentUpon>Sikradio.cs</DependentUpon>
     </EmbeddedResource>
@@ -962,6 +965,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="plugins\example20-multiplepositions.cs" />
+    <Compile Include="PreCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreCheck.Designer.cs">
+      <DependentUpon>PreCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\AirMarket.cs">
       <SubType>UserControl</SubType>
     </Compile>
