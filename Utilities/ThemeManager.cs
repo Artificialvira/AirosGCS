@@ -70,8 +70,8 @@ namespace MissionPlanner.Utilities
             colors.Add("Text", Color.White, "TextColor");										// This changes the colour of text
             colors.Add("TextBox Background", Color.FromArgb(0x43, 0x44, 0x45), "BGColorTextBox");		// This changes the colour of the background of textboxes
             colors.Add("Button Text", Color.FromArgb(64, 87, 4), "ButtonTextColor");				// This changes the colour of button text
-            colors.Add("Button Background top", Color.FromArgb(148, 193, 31), "ButBG");								// This changes the colour of button backgrounds (Top)
-            colors.Add("Button Background bottom", Color.FromArgb(205, 226, 150), "ButBGBot");						// This changes the colour of button backgrounds (Bot)
+            colors.Add("Button Background top", Color.FromArgb(51, 153, 255), "ButBG");								// This changes the colour of button backgrounds (Top)
+            colors.Add("Button Background bottom", Color.FromArgb(0, 255, 204), "ButBGBot");						// This changes the colour of button backgrounds (Bot)
             colors.Add("ProgressBar Top", Color.FromArgb(102, 139, 26), "ProgressBarColorTop");	// These three variables change the colours of progress bars
             colors.Add("ProgressBar Bottom", Color.FromArgb(124, 164, 40), "ProgressBarColorBot");
             colors.Add("ProgressBar Outline", Color.FromArgb(150, 174, 112), "ProgressBarOutlineColor");
@@ -82,8 +82,8 @@ namespace MissionPlanner.Utilities
             colors.Add("Button Mousedown", Color.FromArgb(73, 43, 58, 3), "ColorMouseDown");			// This changes the background color of buttons when the mouse is clicked down on a button
             colors.Add("CurrentPPM Background", Color.Green, "CurrentPPMBackground");					// This changes the background colour of the current PPM setting in the flight modes tab
             colors.Add("Graph Chart Fill", Color.FromArgb(0x1F, 0x1F, 0x20), "ZedGraphChartFill"); 	// These three variables change the fill colours of Zed Graphs
-            colors.Add("Graph Pane Fill", Color.FromArgb(0x37, 0x37, 0x38), "ZedGraphPaneFill");
-            colors.Add("Graph Legend Fill", Color.FromArgb(0x85, 0x84, 0x83), "ZedGraphLegendFill");
+            colors.Add("Graph Pane Fill", Color.FromArgb(0xff, 0x66, 0x99), "ZedGraphPaneFill");
+            colors.Add("Graph Legend Fill", Color.FromArgb(0x79, 0x79, 0xf5), "ZedGraphLegendFill");
             colors.Add("Rich Text Box text", Color.WhiteSmoke, "RTBForeColor");							// This changes the colour of text in rich text boxes
             colors.Add("BackStageView Button Area", Color.Black, "BSVButtonAreaBGColor");					// This changes the colour of a backstageview button area
             colors.Add("BSV Unselected Text", Color.WhiteSmoke, "UnselectedTextColour");			// This changes the colour of unselected text in a BSV button

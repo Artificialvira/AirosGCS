@@ -6260,5 +6260,10 @@ namespace MissionPlanner.GCSViews
                 CustomMessageBox.Show(Strings.CommandFailed + ex.ToString(), Strings.ERROR);
             }
         }
+
+        private void windDir1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

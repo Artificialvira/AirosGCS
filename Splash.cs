@@ -11,10 +11,10 @@ namespace MissionPlanner
             InitializeComponent();
 
             string strVersion = typeof(Splash).GetType().Assembly.GetName().Version.ToString();
+            //
+            //TXT_version.Text = "Version: " + Application.ProductVersion; // +" Build " + strVersion;
 
-            TXT_version.Text = "Version: " + Application.ProductVersion; // +" Build " + strVersion;
-
-            Console.WriteLine(strVersion);
+           // Console.WriteLine(strVersion);
 
             if (Program.Logo != null)
             {
@@ -23,7 +23,7 @@ namespace MissionPlanner
                 pictureBox1.Visible = true;
             }
 
-            Console.WriteLine("Splash .ctor");
+           // Console.WriteLine("Splash .ctor");
         }
     }
 }
