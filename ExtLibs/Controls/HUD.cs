@@ -986,10 +986,10 @@ namespace MissionPlanner.Controls
 
         private Color _skyColor1 = Color.Blue;
         private Color _skyColor2 = Color.LightBlue;
-        private Color _groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
-        private Color _groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07);
+        private Color _groundColor1 = Color.Brown;
+        private Color _groundColor2 = Color.SandyBrown;
 
-        private Color _hudcolor = Color.White;
+        private Color _hudcolor = Color.Black;
         private Pen _whitePen = new Pen(Color.White, 2);
         private readonly SolidBrush _whiteBrush = new SolidBrush(Color.White);
         private readonly SolidBrush _redBrush = new SolidBrush(Color.Red);

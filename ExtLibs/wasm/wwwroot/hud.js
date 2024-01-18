@@ -43,7 +43,7 @@ function draw() {
         var y = Math.cos(-roll * deg2rad);
 
         gradObj = ctx.createLinearGradient(0, -halfheight * 2, 0, halfheight * 2);
-        gradObj.addColorStop(0.0, "Blue");
+        gradObj.addColorStop(0.0, "Black");
         var offset = 0.5 + pitchoffset / canvas.height / 2;
         if (offset < 0) {
             offset = 0;
@@ -51,7 +51,7 @@ function draw() {
         if (offset > 1) {
             offset = 1;
         }
-        gradObj.addColorStop(offset, "LightBlue");
+        gradObj.addColorStop(offset, "brown");
         gradObj.addColorStop(offset, "#9bb824");
         gradObj.addColorStop(1.0, "#414f07");
 

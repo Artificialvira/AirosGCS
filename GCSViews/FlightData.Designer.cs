@@ -226,6 +226,7 @@ namespace MissionPlanner.GCSViews
             this.scriptChecker = new System.Windows.Forms.Timer(this.components);
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
+            this.baseRenderer1 = new BrightIdeasSoftware.BaseRenderer();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -287,7 +288,7 @@ namespace MissionPlanner.GCSViews
             // 
             this.MainH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.MainH, "MainH");
-            this.MainH.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.MainH.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.MainH.Name = "MainH";
             // 
             // MainH.Panel1
@@ -297,6 +298,7 @@ namespace MissionPlanner.GCSViews
             // MainH.Panel2
             // 
             this.MainH.Panel2.Controls.Add(this.tableMap);
+            this.MainH.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.MainH_SplitterMoved);
             // 
             // SubMainLeft
             // 
@@ -394,6 +396,8 @@ namespace MissionPlanner.GCSViews
             this.hud1.gpshdop = 0F;
             this.hud1.gpshdop2 = 0F;
             this.hud1.groundalt = 0F;
+            this.hud1.groundColor1 = System.Drawing.Color.Brown;
+            this.hud1.groundColor2 = System.Drawing.Color.SandyBrown;
             this.hud1.groundcourse = 0F;
             this.hud1.groundspeed = 0F;
             this.hud1.heading = 0F;
@@ -2585,7 +2589,7 @@ namespace MissionPlanner.GCSViews
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 360D;
+            this.windDir1.Direction = 180D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -2666,6 +2670,7 @@ namespace MissionPlanner.GCSViews
             this.gMapControl1.ShowTileGridLines = false;
             this.gMapControl1.Zoom = 3D;
             this.gMapControl1.OnPositionChanged += new GMap.NET.PositionChanged(this.gMapControl1_OnPositionChanged);
+            this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
             this.gMapControl1.Click += new System.EventHandler(this.gMapControl1_Click);
             this.gMapControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseDown);
             this.gMapControl1.MouseLeave += new System.EventHandler(this.gMapControl1_MouseLeave);
@@ -3087,5 +3092,6 @@ namespace MissionPlanner.GCSViews
         private Controls.AuxOptions auxOptions6;
         private Controls.AuxOptions auxOptions7;
         private ToolStripMenuItem jumpToTagToolStripMenuItem;
+        private BrightIdeasSoftware.BaseRenderer baseRenderer1;
     }
 }

@@ -2968,8 +2968,8 @@ namespace MissionPlanner.GCSViews
             else
             {
                 // green
-                hud1.groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
-                hud1.groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07);
+                hud1.groundColor1 = Color.Brown;
+                hud1.groundColor2 = Color.SandyBrown;
             }
 
             Settings.config["groundColorToolStripMenuItem"] = groundColorToolStripMenuItem.Checked.ToString();
@@ -6262,6 +6262,16 @@ namespace MissionPlanner.GCSViews
         }
 
         private void windDir1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainH_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void gMapControl1_Load(object sender, EventArgs e)
         {
 
         }

@@ -309,6 +309,9 @@
     <EmbeddedResource Include="GCSViews\SITL.uk.resx">
       <DependentUpon>SITL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GCSViews\Data.resx">
+      <DependentUpon>Data.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GeoRef\georefimage.uk.resx">
       <DependentUpon>georefimage.cs</DependentUpon>
     </EmbeddedResource>
@@ -913,6 +916,12 @@
     <Compile Include="GCSViews\ConfigurationView\DeviceInfo.cs" />
     <Compile Include="GCSViews\ConfigurationView\DroneCANModel.cs" />
     <Compile Include="GCSViews\ConfigurationView\uitype.cs" />
+    <Compile Include="GCSViews\Data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GCSViews\Data.Designer.cs">
+      <DependentUpon>Data.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Joystick\JoystickAxis.cs">
       <SubType>UserControl</SubType>

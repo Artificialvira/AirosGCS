@@ -89,8 +89,8 @@ namespace MissionPlanner.Utilities
             colors.Add("BSV Unselected Text", Color.WhiteSmoke, "UnselectedTextColour");			// This changes the colour of unselected text in a BSV button
             colors.Add("Horizontal ProgressBar", Color.FromArgb(148, 193, 31), "HorizontalPBValueColor"); // This changes the colour of the horizontal progressbar
             colors.Add("HUD text and drawings", Color.LightGray, "HudText");                       
-            colors.Add("HUD Ground top", Color.FromArgb(0x9b, 0xb8, 0x24), "HudGroundTop");
-            colors.Add("HUD Ground bottom", Color.FromArgb(0x41, 0x4f, 0x07), "HudGroundBot");
+            colors.Add("HUD Ground top", Color.SandyBrown, "HudGroundTop");
+            colors.Add("HUD Ground bottom", Color.Brown, "HudGroundBot");
             colors.Add("HUD Sky top", Color.Blue, "HudSkyTop");
             colors.Add("HUD Sky bottom", Color.LightBlue, "HudSkyBot");
 
