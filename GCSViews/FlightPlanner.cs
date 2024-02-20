@@ -51,6 +51,8 @@ using Point = System.Drawing.Point;
 using Resources = MissionPlanner.Properties.Resources;
 using Newtonsoft.Json;
 using MissionPlanner.ArduPilot.Mavlink;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace MissionPlanner.GCSViews
 {
@@ -60,8 +62,33 @@ namespace MissionPlanner.GCSViews
         {
             InitializeComponent();
             Init();
-        }
 
+            string connectionString = "mongodb+srv://asunama:asunama0987@mission.evzy1zf.mongodb.net/?retryWrites=true&w=majority";
+
+            var settings = MongoClientSettings.FromConnectionString(connectionString);
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            var client = new MongoClient(settings);
+
+            IMongoDatabase database = client.GetDatabase("UserRequests");
+            collection = database.GetCollection<documents>("request");
+
+            LoadData();
+        }
+        private IMongoCollection<documents> collection;
+
+        private async void LoadData()
+        {
+            try
+            {
+                var documents = await collection.Find(x => true).ToListAsync();
+                dataGridView1.DataSource = documents;
+                dataGridView1.Columns[0].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+        }
 
         private void but_mincommands_Click(object sender, System.EventArgs e)
         {
@@ -4856,12 +4883,12 @@ namespace MissionPlanner.GCSViews
 
             e.Graphics.ResetTransform();
 
-            polyicon.Location = new Point(10, 100);
+            polyicon.Location = new Point(1300, 100);
             polyicon.Paint(e.Graphics);
 
             e.Graphics.ResetTransform();
 
-            zoomicon.Location = new Point(10, polyicon.Location.Y + polyicon.Height + 5);
+            zoomicon.Location = new Point(1300, polyicon.Location.Y + polyicon.Height + 5);
             zoomicon.Paint(e.Graphics);
 
             e.Graphics.ResetTransform();
@@ -7969,6 +7996,21 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             var ans = GDAL.GDALProvider.Instance.opacity;
             if (InputBox.Show("Opacity 0.0-1.0", "Enter opacity (0.0-1.0)", ref ans) == DialogResult.OK)
                 GDAL.GDALProvider.Instance.opacity = double.Parse(InputBox.value);
+        }
+
+        private void MainMap_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

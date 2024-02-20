@@ -640,6 +640,9 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
+    <PackageReference Include="MongoDB.Driver">
+      <Version>2.23.1</Version>
+    </PackageReference>
     <PackageReference Include="MP.DotSpatial.Data">
       <Version>4.0.0</Version>
     </PackageReference>
@@ -802,6 +805,7 @@
     <Compile Include="Controls\FollowMe.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="documents.cs" />
     <Compile Include="GCSViews\ConfigurationView\ConfigADSB.cs">
       <SubType>UserControl</SubType>
     </Compile>
