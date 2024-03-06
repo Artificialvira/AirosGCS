@@ -58,36 +58,190 @@ namespace MissionPlanner.GCSViews
 {
     public partial class FlightPlanner : MyUserControl, IDeactivate, IActivate
     {
+        private IMongoCollection<documents> collection;
+
+        private IChangeStreamCursor<ChangeStreamDocument<documents>> changeStreamCursor;
         public FlightPlanner()
         {
+
+
             InitializeComponent();
             Init();
+            InitializeMongoDB();
+            StartListeningForChanges();
 
-            string connectionString = "mongodb+srv://asunama:asunama0987@mission.evzy1zf.mongodb.net/?retryWrites=true&w=majority";
-
-            var settings = MongoClientSettings.FromConnectionString(connectionString);
-            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
-            var client = new MongoClient(settings);
-
-            IMongoDatabase database = client.GetDatabase("UserRequests");
-            collection = database.GetCollection<documents>("request");
+            if (this.ParentForm != null)
+            {
+                this.ParentForm.FormClosing += ParentForm_FormClosing;
+            }
 
             LoadData();
         }
-        private IMongoCollection<documents> collection;
+        
 
+        private void InitializeMongoDB()
+        {
+            string connectionString = "mongodb+srv://asunama:asunama0987@mission.evzy1zf.mongodb.net/?retryWrites=true&w=majority";
+            var settings = MongoClientSettings.FromConnectionString(connectionString);
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            var client = new MongoClient(settings);
+            IMongoDatabase database = client.GetDatabase("UserRequests");
+            collection = database.GetCollection<documents>("request");
+        }
         private async void LoadData()
         {
             try
             {
+                // Clear the FlowLayoutPanel before loading new data
+                flowLayoutPanel3.Controls.Clear();
+
                 var documents = await collection.Find(x => true).ToListAsync();
-                dataGridView1.DataSource = documents;
-                dataGridView1.Columns[0].Visible = false;
+                foreach (var document in documents)
+                {
+                    // Create a new panel for each document
+                    Panel messagePanel = new Panel
+                    {
+                        Size = new Size(flowLayoutPanel3.Width, 25), // Adjust size as needed
+                        BackColor = Color.LightGray, // Set background color
+                        Margin = new Padding(5), // Add some margin
+                        Tag = new Tuple<string, string, string>(document.lattitude.ToString(), document.longitude.ToString(), document.message)
+                    };
+
+                    // Add a label to the panel to display the document's content
+                    Label messageLabel = new Label
+                    {
+                        Text = document.message, 
+                        BackColor = Color.Black,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Tag = new Tuple<string, string, string>(document.lattitude.ToString(), document.longitude.ToString(), document.message)
+
+                    };
+                    messagePanel.Controls.Add(messageLabel);
+
+                    // Add click event handler to the panel
+                    messagePanel.Click += MessagePanel_Click;
+                    messageLabel.Click += MessageLabel_Click;
+
+                    // Add the panel to the FlowLayoutPanel
+                    flowLayoutPanel3.Controls.Add(messagePanel);
+
+                    
+
+                }
+
+                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
+        }
+
+        private void MessageLabel_Click(object sender, EventArgs e)
+        {
+            Label clickedPanel = sender as Label;
+            if (clickedPanel != null)
+            {
+                // Assuming each panel's Tag property contains the message
+                var documentData = clickedPanel.Tag as Tuple<string, string, string>;
+                if (documentData != null)
+                {
+                    string latitude = documentData.Item1;
+                    string longitude = documentData.Item2;
+                    string Message1 = documentData.Item3;
+                    // Create an instance of the custom message box form
+                    Confirmation confirmationForm = new Confirmation
+                    {
+                        Latitude = latitude,
+                        Longitude = longitude,
+                        Message = Message1 // Assuming 'message' is a string variable containing the message text
+                    }; ;
+
+                    // Show the custom message box form
+                    DialogResult result = confirmationForm.ShowDialog();
+
+                    // Check the result of the dialog
+                    if (result == DialogResult.OK)
+                    {
+                        // Handle the Load button click
+                        MessageBox.Show("Load button was clicked.");
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        // Handle the Cancel button click
+                        MessageBox.Show("Cancel button was clicked.");
+                    }
+                }
+
+            }
+        }
+
+        private void MessagePanel_Click(object sender, EventArgs e)
+        {
+            Panel clickedPanel = sender as Panel;
+            if (clickedPanel != null)
+            {
+                // Assuming each panel's Tag property contains the message
+                var documentData = clickedPanel.Tag as Tuple<string, string, string>;
+                if (documentData != null)
+                {
+                    string latitude = documentData.Item1;
+                    string longitude = documentData.Item2;
+                    string Message1 = documentData.Item3;
+                    // Create an instance of the custom message box form
+                    Confirmation confirmationForm = new Confirmation
+                    {
+                        Latitude = latitude,
+                        Longitude = longitude,
+                        Message = Message1 // Assuming 'message' is a string variable containing the message text
+                    }; ;
+
+                    // Show the custom message box form
+                    DialogResult result = confirmationForm.ShowDialog();
+
+                    // Check the result of the dialog
+                    if (result == DialogResult.OK)
+                    {
+                        // Handle the Load button click
+                        MessageBox.Show("Load button was clicked.");
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        // Handle the Cancel button click
+                        MessageBox.Show("Cancel button was clicked.");
+                    }
+                }
+                
+            }
+        }
+
+
+        private void StartListeningForChanges()
+        {
+            // Include ChangeStreamOperationType.Delete in the match pipeline to listen for delete operations
+            var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<documents>>()
+                .Match(change => change.OperationType == ChangeStreamOperationType.Insert ||
+                                change.OperationType == ChangeStreamOperationType.Update ||
+                                change.OperationType == ChangeStreamOperationType.Replace ||
+                                change.OperationType == ChangeStreamOperationType.Delete);
+
+            changeStreamCursor = collection.Watch(pipeline);
+            changeStreamCursor.ForEachAsync(change =>
+            {
+                // Update UI on the UI thread
+                this.Invoke(new Action(() =>
+                {
+                    LoadData();
+                }));
+            });
+        }
+
+
+        private void ParentForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Perform cleanup tasks here
+            changeStreamCursor?.Dispose();
         }
 
         private void but_mincommands_Click(object sender, System.EventArgs e)

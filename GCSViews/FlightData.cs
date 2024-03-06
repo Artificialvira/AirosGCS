@@ -6142,7 +6142,7 @@ namespace MissionPlanner.GCSViews
             }
             catch (Exception ex)
             {
-                CustomMessageBox.Show("Timeout.");
+                CustomMessageBox.Show("Timeout."+ex);
             }
         }
 

@@ -128,25 +128,7 @@ namespace MissionPlanner
         {
             Program.args = args;
 
-            string connectionString = "mongodb+srv://asunama:asunama0987@mission.evzy1zf.mongodb.net/?retryWrites=true&w=majority";
-
-            var settings = MongoClientSettings.FromConnectionString(connectionString);
-            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
-            var client = new MongoClient(settings);
-
-            try
-            {
-                var result = client.GetDatabase("UserRequests").RunCommand<BsonDocument>(new BsonDocument("ping", 1));
-                Console.WriteLine("Pinged your deployment. You successfully connected to MongoDB!");
-                MessageBox.Show(result.ToString());
-
-                //MessageBox.Show(result.ToString());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
+            
             Console.WriteLine(
                 "If your error is about Microsoft.DirectX.DirectInput, please install the latest directx redist from here http://www.microsoft.com/en-us/download/details.aspx?id=35 \n\n");
             Console.WriteLine("Debug under mono    MONO_LOG_LEVEL=debug mono MissionPlanner.exe");
