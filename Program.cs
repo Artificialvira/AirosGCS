@@ -205,7 +205,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "AirosGCS";
+            name = "Asunama Command Center";
 
             try
             {

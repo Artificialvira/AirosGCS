@@ -562,8 +562,8 @@ namespace MissionPlanner
 
         public void updateLayout(object sender, EventArgs e)
         {
-            MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
-            MenuHelp.Visible = DisplayConfiguration.displayHelp;
+            //MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
+            //MenuHelp.Visible = DisplayConfiguration.displayHelp;
             MissionPlanner.Controls.BackstageView.BackstageView.Advanced = DisplayConfiguration.isAdvancedMode;
 
             // force autohide on
@@ -4780,6 +4780,26 @@ namespace MissionPlanner
                     break;
                 }
             }
+        }
+
+        private void ewoiufadsjkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("FlightData");
+
+            // save config
+            SaveConfig();
+        }
+        private void aweifufsdhknToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void aweifufsdhknToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("FlightPlanner");
+
+            // save config
+            SaveConfig();
         }
     }
 }

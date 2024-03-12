@@ -52,6 +52,11 @@ namespace MissionPlanner
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ewoiufadsjkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aweifufsdhknToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.awefyiusdiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aweifupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.status1 = new MissionPlanner.Controls.Status();
@@ -75,7 +80,8 @@ namespace MissionPlanner
             this.MenuHelp,
             this.MenuConnect,
             this.toolStripConnectionControl,
-            this.MenuArduPilot});
+            this.MenuArduPilot,
+            this.toolStripMenuItem1});
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.ShowItemToolTips = true;
             this.MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MainMenu_ItemClicked);
@@ -204,6 +210,39 @@ namespace MissionPlanner
             this.MenuArduPilot.Name = "MenuArduPilot";
             this.MenuArduPilot.Click += new System.EventHandler(this.MenuArduPilot_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ewoiufadsjkToolStripMenuItem,
+            this.aweifufsdhknToolStripMenuItem,
+            this.awefyiusdiToolStripMenuItem,
+            this.aweifupToolStripMenuItem});
+            this.toolStripMenuItem1.Image = global::MissionPlanner.Properties.Resources.Antenna_Tracker_01;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            // 
+            // ewoiufadsjkToolStripMenuItem
+            // 
+            this.ewoiufadsjkToolStripMenuItem.Name = "ewoiufadsjkToolStripMenuItem";
+            resources.ApplyResources(this.ewoiufadsjkToolStripMenuItem, "ewoiufadsjkToolStripMenuItem");
+            this.ewoiufadsjkToolStripMenuItem.Click += new System.EventHandler(this.ewoiufadsjkToolStripMenuItem_Click);
+            // 
+            // aweifufsdhknToolStripMenuItem
+            // 
+            this.aweifufsdhknToolStripMenuItem.Name = "aweifufsdhknToolStripMenuItem";
+            resources.ApplyResources(this.aweifufsdhknToolStripMenuItem, "aweifufsdhknToolStripMenuItem");
+            this.aweifufsdhknToolStripMenuItem.Click += new System.EventHandler(this.aweifufsdhknToolStripMenuItem_Click_1);
+            // 
+            // awefyiusdiToolStripMenuItem
+            // 
+            this.awefyiusdiToolStripMenuItem.Name = "awefyiusdiToolStripMenuItem";
+            resources.ApplyResources(this.awefyiusdiToolStripMenuItem, "awefyiusdiToolStripMenuItem");
+            // 
+            // aweifupToolStripMenuItem
+            // 
+            this.aweifupToolStripMenuItem.Name = "aweifupToolStripMenuItem";
+            resources.ApplyResources(this.aweifupToolStripMenuItem, "aweifupToolStripMenuItem");
+            // 
             // menu
             // 
             resources.ApplyResources(this.menu, "menu");
@@ -266,5 +305,10 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton MenuHelp;
         public System.Windows.Forms.ToolStripButton MenuArduPilot;
         public Controls.Status status1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ewoiufadsjkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aweifufsdhknToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem awefyiusdiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aweifupToolStripMenuItem;
     }
 }
